@@ -17,10 +17,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
-            }
-        }   
-    }
     post {
 success {
 dir (‘maven-adderapp’) {
@@ -31,5 +27,8 @@ true
 }
 }
 }
+            }
+        }   
+    }
 }
 
