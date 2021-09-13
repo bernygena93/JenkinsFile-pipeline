@@ -18,16 +18,17 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying..'
-            }
-        }   
-        post {
-            success {
-            dir (‘maven-adderapp’) {
-            archiveArtifacts artifacts: 'target/*.jar', fingerprint:true
+                steps {
+                        post {
+                            success {
+                            dir (‘maven-adderapp’) {
+                            archiveArtifacts artifacts: 'target/*.jar', fingerprint:true
+                            }
+                        }
                     }
                 }
-        }
+            }
+        }   
     }
 }
 
